@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mangues.dao.interfacce.app.DeliveryTypeVOMapper" >
+  <resultMap id="BaseResultMap" type="com.mangues.model.app.DeliveryTypeVO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="volume" property="volume" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="monery" property="monery" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="typeFrom" property="typefrom" jdbcType="INTEGER" />
+    <result column="carload" property="carload" jdbcType="INTEGER" />
+    <result column="startkilometer" property="startkilometer" jdbcType="INTEGER" />
+    <result column="exceedMonery" property="exceedmonery" jdbcType="INTEGER" />
+    <result column="imgUrl" property="imgurl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, volume, type, monery, remark, typeFrom, carload, startkilometer, exceedMonery, 
+    imgUrl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from DeliveryType
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from DeliveryType
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mangues.model.app.DeliveryTypeVO" >
+    insert into DeliveryType (id, name, volume, 
+      type, monery, remark, 
+      typeFrom, carload, startkilometer, 
+      exceedMonery, imgUrl)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{volume,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{monery,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{typefrom,jdbcType=INTEGER}, #{carload,jdbcType=INTEGER}, #{startkilometer,jdbcType=INTEGER}, 
+      #{exceedmonery,jdbcType=INTEGER}, #{imgurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mangues.model.app.DeliveryTypeVO" >
+    insert into DeliveryType
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="volume != null" >
+        volume,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="monery != null" >
+        monery,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="typefrom != null" >
+        typeFrom,
+      </if>
+      <if test="carload != null" >
+        carload,
+      </if>
+      <if test="startkilometer != null" >
+        startkilometer,
+      </if>
+      <if test="exceedmonery != null" >
+        exceedMonery,
+      </if>
+      <if test="imgurl != null" >
+        imgUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="monery != null" >
+        #{monery,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="typefrom != null" >
+        #{typefrom,jdbcType=INTEGER},
+      </if>
+      <if test="carload != null" >
+        #{carload,jdbcType=INTEGER},
+      </if>
+      <if test="startkilometer != null" >
+        #{startkilometer,jdbcType=INTEGER},
+      </if>
+      <if test="exceedmonery != null" >
+        #{exceedmonery,jdbcType=INTEGER},
+      </if>
+      <if test="imgurl != null" >
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mangues.model.app.DeliveryTypeVO" >
+    update DeliveryType
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        volume = #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="monery != null" >
+        monery = #{monery,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="typefrom != null" >
+        typeFrom = #{typefrom,jdbcType=INTEGER},
+      </if>
+      <if test="carload != null" >
+        carload = #{carload,jdbcType=INTEGER},
+      </if>
+      <if test="startkilometer != null" >
+        startkilometer = #{startkilometer,jdbcType=INTEGER},
+      </if>
+      <if test="exceedmonery != null" >
+        exceedMonery = #{exceedmonery,jdbcType=INTEGER},
+      </if>
+      <if test="imgurl != null" >
+        imgUrl = #{imgurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mangues.model.app.DeliveryTypeVO" >
+    update DeliveryType
+    set name = #{name,jdbcType=VARCHAR},
+      volume = #{volume,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      monery = #{monery,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      typeFrom = #{typefrom,jdbcType=INTEGER},
+      carload = #{carload,jdbcType=INTEGER},
+      startkilometer = #{startkilometer,jdbcType=INTEGER},
+      exceedMonery = #{exceedmonery,jdbcType=INTEGER},
+      imgUrl = #{imgurl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

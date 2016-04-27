@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mangues.dao.interfacce.app.CommonRouteVOMapper" >
+  <resultMap id="BaseResultMap" type="com.mangues.model.app.CommonRouteVO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="routeTitle" property="routetitle" jdbcType="VARCHAR" />
+    <result column="fromAddress" property="fromaddress" jdbcType="VARCHAR" />
+    <result column="toAddress" property="toaddress" jdbcType="VARCHAR" />
+    <result column="fromPeople" property="frompeople" jdbcType="VARCHAR" />
+    <result column="fromPhone" property="fromphone" jdbcType="VARCHAR" />
+    <result column="toPeople" property="topeople" jdbcType="VARCHAR" />
+    <result column="toPhone" property="tophone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, routeTitle, fromAddress, toAddress, fromPeople, fromPhone, toPeople, toPhone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from CommonRoute
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from CommonRoute
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mangues.model.app.CommonRouteVO" >
+    insert into CommonRoute (id, uid, routeTitle, 
+      fromAddress, toAddress, fromPeople, 
+      fromPhone, toPeople, toPhone
+      )
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{routetitle,jdbcType=VARCHAR}, 
+      #{fromaddress,jdbcType=VARCHAR}, #{toaddress,jdbcType=VARCHAR}, #{frompeople,jdbcType=VARCHAR}, 
+      #{fromphone,jdbcType=VARCHAR}, #{topeople,jdbcType=VARCHAR}, #{tophone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mangues.model.app.CommonRouteVO" >
+    insert into CommonRoute
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="routetitle != null" >
+        routeTitle,
+      </if>
+      <if test="fromaddress != null" >
+        fromAddress,
+      </if>
+      <if test="toaddress != null" >
+        toAddress,
+      </if>
+      <if test="frompeople != null" >
+        fromPeople,
+      </if>
+      <if test="fromphone != null" >
+        fromPhone,
+      </if>
+      <if test="topeople != null" >
+        toPeople,
+      </if>
+      <if test="tophone != null" >
+        toPhone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="routetitle != null" >
+        #{routetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fromaddress != null" >
+        #{fromaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="toaddress != null" >
+        #{toaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="frompeople != null" >
+        #{frompeople,jdbcType=VARCHAR},
+      </if>
+      <if test="fromphone != null" >
+        #{fromphone,jdbcType=VARCHAR},
+      </if>
+      <if test="topeople != null" >
+        #{topeople,jdbcType=VARCHAR},
+      </if>
+      <if test="tophone != null" >
+        #{tophone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mangues.model.app.CommonRouteVO" >
+    update CommonRoute
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="routetitle != null" >
+        routeTitle = #{routetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fromaddress != null" >
+        fromAddress = #{fromaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="toaddress != null" >
+        toAddress = #{toaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="frompeople != null" >
+        fromPeople = #{frompeople,jdbcType=VARCHAR},
+      </if>
+      <if test="fromphone != null" >
+        fromPhone = #{fromphone,jdbcType=VARCHAR},
+      </if>
+      <if test="topeople != null" >
+        toPeople = #{topeople,jdbcType=VARCHAR},
+      </if>
+      <if test="tophone != null" >
+        toPhone = #{tophone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mangues.model.app.CommonRouteVO" >
+    update CommonRoute
+    set uid = #{uid,jdbcType=INTEGER},
+      routeTitle = #{routetitle,jdbcType=VARCHAR},
+      fromAddress = #{fromaddress,jdbcType=VARCHAR},
+      toAddress = #{toaddress,jdbcType=VARCHAR},
+      fromPeople = #{frompeople,jdbcType=VARCHAR},
+      fromPhone = #{fromphone,jdbcType=VARCHAR},
+      toPeople = #{topeople,jdbcType=VARCHAR},
+      toPhone = #{tophone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

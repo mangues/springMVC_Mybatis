@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mangues.dao.interfacce.app.WithdrawalsVOMapper" >
+  <resultMap id="BaseResultMap" type="com.mangues.model.app.WithdrawalsVO" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="monery" property="monery" jdbcType="DOUBLE" />
+    <result column="drawTime" property="drawtime" jdbcType="TIMESTAMP" />
+    <result column="drawStatus" property="drawstatus" jdbcType="INTEGER" />
+    <result column="toType" property="totype" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="uidtype" property="uidtype" jdbcType="INTEGER" />
+    <result column="accounts" property="accounts" jdbcType="VARCHAR" />
+    <result column="toName" property="toname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, monery, drawTime, drawStatus, toType, uid, uidtype, accounts, toName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Withdrawals
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Withdrawals
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mangues.model.app.WithdrawalsVO" >
+    insert into Withdrawals (id, monery, drawTime, 
+      drawStatus, toType, uid, 
+      uidtype, accounts, toName
+      )
+    values (#{id,jdbcType=VARCHAR}, #{monery,jdbcType=DOUBLE}, #{drawtime,jdbcType=TIMESTAMP}, 
+      #{drawstatus,jdbcType=INTEGER}, #{totype,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
+      #{uidtype,jdbcType=INTEGER}, #{accounts,jdbcType=VARCHAR}, #{toname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mangues.model.app.WithdrawalsVO" >
+    insert into Withdrawals
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="monery != null" >
+        monery,
+      </if>
+      <if test="drawtime != null" >
+        drawTime,
+      </if>
+      <if test="drawstatus != null" >
+        drawStatus,
+      </if>
+      <if test="totype != null" >
+        toType,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uidtype != null" >
+        uidtype,
+      </if>
+      <if test="accounts != null" >
+        accounts,
+      </if>
+      <if test="toname != null" >
+        toName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="monery != null" >
+        #{monery,jdbcType=DOUBLE},
+      </if>
+      <if test="drawtime != null" >
+        #{drawtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drawstatus != null" >
+        #{drawstatus,jdbcType=INTEGER},
+      </if>
+      <if test="totype != null" >
+        #{totype,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uidtype != null" >
+        #{uidtype,jdbcType=INTEGER},
+      </if>
+      <if test="accounts != null" >
+        #{accounts,jdbcType=VARCHAR},
+      </if>
+      <if test="toname != null" >
+        #{toname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mangues.model.app.WithdrawalsVO" >
+    update Withdrawals
+    <set >
+      <if test="monery != null" >
+        monery = #{monery,jdbcType=DOUBLE},
+      </if>
+      <if test="drawtime != null" >
+        drawTime = #{drawtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drawstatus != null" >
+        drawStatus = #{drawstatus,jdbcType=INTEGER},
+      </if>
+      <if test="totype != null" >
+        toType = #{totype,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uidtype != null" >
+        uidtype = #{uidtype,jdbcType=INTEGER},
+      </if>
+      <if test="accounts != null" >
+        accounts = #{accounts,jdbcType=VARCHAR},
+      </if>
+      <if test="toname != null" >
+        toName = #{toname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mangues.model.app.WithdrawalsVO" >
+    update Withdrawals
+    set monery = #{monery,jdbcType=DOUBLE},
+      drawTime = #{drawtime,jdbcType=TIMESTAMP},
+      drawStatus = #{drawstatus,jdbcType=INTEGER},
+      toType = #{totype,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      uidtype = #{uidtype,jdbcType=INTEGER},
+      accounts = #{accounts,jdbcType=VARCHAR},
+      toName = #{toname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

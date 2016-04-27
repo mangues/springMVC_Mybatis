@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mangues.dao.interfacce.app.PhoneCodeTemporaryVOMapper" >
+  <resultMap id="BaseResultMap" type="com.mangues.model.app.PhoneCodeTemporaryVO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="phoneCode" property="phonecode" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="uidtype" property="uidtype" jdbcType="INTEGER" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, phoneCode, phone, uidtype, creatTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from PhoneCodeTemporary
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from PhoneCodeTemporary
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mangues.model.app.PhoneCodeTemporaryVO" >
+    insert into PhoneCodeTemporary (id, phoneCode, phone, 
+      uidtype, creatTime)
+    values (#{id,jdbcType=INTEGER}, #{phonecode,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{uidtype,jdbcType=INTEGER}, #{creattime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mangues.model.app.PhoneCodeTemporaryVO" >
+    insert into PhoneCodeTemporary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="phonecode != null" >
+        phoneCode,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="uidtype != null" >
+        uidtype,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="phonecode != null" >
+        #{phonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="uidtype != null" >
+        #{uidtype,jdbcType=INTEGER},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mangues.model.app.PhoneCodeTemporaryVO" >
+    update PhoneCodeTemporary
+    <set >
+      <if test="phonecode != null" >
+        phoneCode = #{phonecode,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="uidtype != null" >
+        uidtype = #{uidtype,jdbcType=INTEGER},
+      </if>
+      <if test="creattime != null" >
+        creatTime = #{creattime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mangues.model.app.PhoneCodeTemporaryVO" >
+    update PhoneCodeTemporary
+    set phoneCode = #{phonecode,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      uidtype = #{uidtype,jdbcType=INTEGER},
+      creatTime = #{creattime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

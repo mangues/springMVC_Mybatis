@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mangues.dao.interfacce.app.WebPostInfoVOMapper" >
+  <resultMap id="BaseResultMap" type="com.mangues.model.app.WebPostInfoVO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="postName" property="postname" jdbcType="VARCHAR" />
+    <result column="postPhone" property="postphone" jdbcType="VARCHAR" />
+    <result column="postEmail" property="postemail" jdbcType="VARCHAR" />
+    <result column="postAreaA" property="postareaa" jdbcType="VARCHAR" />
+    <result column="postAreaB" property="postareab" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mangues.model.app.WebPostInfoVO" extends="BaseResultMap" >
+    <result column="postContent" property="postcontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, postName, postPhone, postEmail, postAreaA, postAreaB
+  </sql>
+  <sql id="Blob_Column_List" >
+    postContent
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from WebPostInfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from WebPostInfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mangues.model.app.WebPostInfoVO" >
+    insert into WebPostInfo (id, postName, postPhone, 
+      postEmail, postAreaA, postAreaB, 
+      postContent)
+    values (#{id,jdbcType=INTEGER}, #{postname,jdbcType=VARCHAR}, #{postphone,jdbcType=VARCHAR}, 
+      #{postemail,jdbcType=VARCHAR}, #{postareaa,jdbcType=VARCHAR}, #{postareab,jdbcType=VARCHAR}, 
+      #{postcontent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mangues.model.app.WebPostInfoVO" >
+    insert into WebPostInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="postname != null" >
+        postName,
+      </if>
+      <if test="postphone != null" >
+        postPhone,
+      </if>
+      <if test="postemail != null" >
+        postEmail,
+      </if>
+      <if test="postareaa != null" >
+        postAreaA,
+      </if>
+      <if test="postareab != null" >
+        postAreaB,
+      </if>
+      <if test="postcontent != null" >
+        postContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="postname != null" >
+        #{postname,jdbcType=VARCHAR},
+      </if>
+      <if test="postphone != null" >
+        #{postphone,jdbcType=VARCHAR},
+      </if>
+      <if test="postemail != null" >
+        #{postemail,jdbcType=VARCHAR},
+      </if>
+      <if test="postareaa != null" >
+        #{postareaa,jdbcType=VARCHAR},
+      </if>
+      <if test="postareab != null" >
+        #{postareab,jdbcType=VARCHAR},
+      </if>
+      <if test="postcontent != null" >
+        #{postcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mangues.model.app.WebPostInfoVO" >
+    update WebPostInfo
+    <set >
+      <if test="postname != null" >
+        postName = #{postname,jdbcType=VARCHAR},
+      </if>
+      <if test="postphone != null" >
+        postPhone = #{postphone,jdbcType=VARCHAR},
+      </if>
+      <if test="postemail != null" >
+        postEmail = #{postemail,jdbcType=VARCHAR},
+      </if>
+      <if test="postareaa != null" >
+        postAreaA = #{postareaa,jdbcType=VARCHAR},
+      </if>
+      <if test="postareab != null" >
+        postAreaB = #{postareab,jdbcType=VARCHAR},
+      </if>
+      <if test="postcontent != null" >
+        postContent = #{postcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mangues.model.app.WebPostInfoVO" >
+    update WebPostInfo
+    set postName = #{postname,jdbcType=VARCHAR},
+      postPhone = #{postphone,jdbcType=VARCHAR},
+      postEmail = #{postemail,jdbcType=VARCHAR},
+      postAreaA = #{postareaa,jdbcType=VARCHAR},
+      postAreaB = #{postareab,jdbcType=VARCHAR},
+      postContent = #{postcontent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mangues.model.app.WebPostInfoVO" >
+    update WebPostInfo
+    set postName = #{postname,jdbcType=VARCHAR},
+      postPhone = #{postphone,jdbcType=VARCHAR},
+      postEmail = #{postemail,jdbcType=VARCHAR},
+      postAreaA = #{postareaa,jdbcType=VARCHAR},
+      postAreaB = #{postareab,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,199 @@
+.slider{
+	left:250px;
+}
+
+.goodness,.money,.do{
+	background: #fafafa;
+	text-align: center;
+	overflow: hidden;
+}
+h2{
+	font-size: 35px;
+	margin:30px 0 50px;
+}
+.goodness ul{
+	width: 1024px;
+	margin:0 auto;
+}
+.goodness li{
+	float: left;
+	width: 25%;
+	height: 250px;
+}
+.goodness li img{
+	margin:0 auto;
+	display: block;
+}
+.goodness p{
+	
+	width: 170px;
+	margin:25px auto 0;
+}
+p{
+	font-size: 16px;
+	color:#333;
+}
+.money{
+	background: #fff;
+}
+.money ul{
+	width: 1068px;
+	margin:0 auto;
+}
+.money li{
+	width: 310px;
+	height: 60px;
+	font-size: 25px;
+	float: left;
+	padding-top: 300px;
+	color:#fff;
+	margin:40px 23px;
+}
+.li01{
+	background: url(../images/money01.png) no-repeat left top;
+}
+.li02{
+	background: url(../images/money02.png) no-repeat left top;
+}
+.li03{
+	background: url(../images/money03.png) no-repeat left top;
+}
+
+.xny{
+	background: #ff7801;
+	overflow: hidden;
+	height: 622px;
+}
+.xny01{
+	width: 260px;
+	height: 260px;
+	margin:260px auto;
+	position: relative;
+
+}
+.xny01>img{
+	position: absolute;
+	left:0;
+	top:0;
+	transition: all 1s;
+}
+.xny01>div{
+	position: absolute;
+	left:60px;
+	top:40px;
+	transition: all 1s;
+}
+
+.xny01 .xny02{
+	left:-250px;
+	opacity: 1;
+}
+.xny01 .xny03{
+	top:-165px;
+	left:60px;
+	opacity: 1;
+}
+.xny01 .xny04{
+	left:390px;
+	opacity: 1;
+}
+.xny01 .xny05{
+	left:-200px;
+	top:-65px;
+	opacity: 1;
+}
+.ks .xny02,.ks .xny03,.ks .xny04{
+	position: absolute;
+	left:60px;
+	top:40px;
+	opacity: 0;
+}
+.ks .xny05{
+	opacity: 0;
+}
+
+.car{
+	background: #fff;
+	text-align: center;
+}
+.car h2{
+	margin: 40px auto 30px;
+}
+.car img{
+	margin:40px auto;
+}
+
+.do{
+	position: relative;
+	margin-bottom: 50px;
+}
+.do img{
+	margin:0 auto;
+}
+.do h2{
+	color:#fff;
+	font-size: 40px;
+	width: 100%;
+	position: absolute;
+	left:0;
+	top:10px;
+}
+.do p{
+	color:#fff;
+	width: 100%;
+	font-size: 25px;
+	position: absolute;
+	left:0;
+	bottom: 40px;
+}
+
+.add{
+	background: #fafafa;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+.add form{
+	width: 900px;
+	height: 378px;
+	margin:50px auto;
+}
+.add input{
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+	margin-right: 50px;
+	background: none;
+	border:1px solid #000;
+	border-radius: 5px;
+	outline: none;
+}
+.add label{
+	font-size: 16px;
+	color:#323232;
+}
+.add li{
+	margin-bottom: 40px;
+}
+.add select{
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	border:1px solid #000;
+	border-radius: 5px;
+	outline: none;
+}
+.add textarea{
+	width: 808px;
+	height: 138px;
+	padding:10px 5px;
+	border-radius: 5px;
+	border:1px solid #000;
+	outline: none;
+}
+.add .btn{
+	font-size: 16px;
+	background: #fff;
+	display: block;
+	margin:0 auto;
+}

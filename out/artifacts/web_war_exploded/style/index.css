@@ -1,0 +1,310 @@
+
+
+/*new*/
+.new{
+	background: #f2f2f2;
+	overflow: hidden;
+}
+.new-in{
+	border:1px solid #fff;
+	border-radius: 5px;
+	width:964px;
+	height: 140px;
+	margin:20px auto;
+	padding:22px 20px;
+}
+.new-l,.new-c,.new-r{
+	float: left;
+	overflow: hidden;
+}
+.new h6{
+	line-height: 30px;
+	padding-left: 32px;
+	background: url(../images/new.jpg) no-repeat left center;
+	border-bottom: 1px solid #ff7801;
+}
+.hid{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.new li{
+	line-height: 26px;
+	overflow: hidden;
+}
+.new .new-down{
+	width:285px;
+	height: 104px;
+	padding-top: 5px;
+	overflow: hidden;
+}
+.new ul{
+	width: 100%;
+	overflow: hidden;
+}
+.new .new-in .new-l li a{
+	width: 100%;
+}
+.new .new-in .list1 li a,.new .new-in .list2 li a,.new .new-in .new-c li a{
+	width: 76%;
+	float: left;
+	display: block;
+}
+.new .new-in li span{
+	width: 24%;
+	float:right;
+	display: block;
+}
+.new-c{
+	padding:0 50px;
+}
+.new-r{
+	position: relative;
+}
+.new-r ol{
+	width:285px;
+	line-height: 30px;
+	border-bottom: 1px solid #ff7801;
+	overflow: hidden;
+	position: absolute;
+	left:0;
+	top:0;
+}
+.new-r ol li{
+	float: left;
+	line-height: 30px;
+	padding:0 8px;
+	cursor: pointer;
+
+}
+.new-r ol li.last{
+	float: right;
+	padding:0;
+}
+.moving{
+	background: #fff;
+	border:1px solid #ff7801;
+	width:64px;
+	height: 29px;
+	position: absolute;
+	left:0;
+	top:0;
+}
+.new-c ul,.new-r ul{
+	position: absolute;
+	left:0;
+	top:0;
+}
+.new-c .new-down{
+	position: relative;
+}
+.new-r .new-down{
+	padding-top: 36px;
+	position: relative;
+}
+
+.list1,.list2{
+	position: absolute;
+	left:0;
+	top:36px;
+}
+.list2{
+	display: none;
+}
+
+
+/*what*/
+.what,.why,.advan,.city,.who{
+	text-align: center;
+}
+h3{
+	font-size: 35px;
+	color:#323232;
+	margin-top: 50px;
+}
+h4{
+	font-size: 18px;
+	color:#646464;
+	line-height: 30px;
+	margin-bottom: 55px;
+}
+.hr{
+	height: 1px;
+	background: #d6d6d6;
+
+}
+.orange{
+	width:100px;
+	height: 2px;
+	background: #ff7801;
+	margin:0 auto;
+	position: relative;
+}
+.bail,.bair{
+	height: 3px;
+	width:70px;
+	background: #fff;
+	position: absolute;
+	top:-1px;
+}
+.bail{
+	left:-120px;
+}
+.bair{
+	right:-120px;
+}
+p{
+	color:#646464;
+	font-size: 16px;
+	line-height: 22px;
+}
+.what ul{
+	width: 1024px;
+	margin:55px auto 0;
+	overflow: hidden;
+}
+.what ul li{
+	width:310px;
+	height: 360px;
+	float: left;
+}
+.what .app{
+	background: url(../images/app01.png) no-repeat left top;
+}
+.what .car{
+	background: url(../images/car01.png) no-repeat left top;
+	margin-left: 47px;
+	margin-right: 47px;
+}
+.what .stripe{
+	background: url(../images/stripe01.png) no-repeat left top;
+}
+.what .app:hover{
+	background: url(../images/app02.png) no-repeat left top;
+}
+.what .car:hover{
+	background: url(../images/car02.png) no-repeat left top;
+}
+.what .stripe:hover{
+	background: url(../images/stripe02.png) no-repeat left top;
+}
+.what li a{
+	width:100%;
+	height: 100%;
+	display: block;
+	color:#fff;
+	padding-top: 300px;
+	font-size: 25px;
+}
+.what li a:hover{
+	text-decoration: none;
+}
+
+.why h4{
+	margin-bottom: 0;
+}
+.bg{
+	background: #fafafa;
+	overflow: hidden;
+	height: 720px;
+}
+.why .left{
+	padding-left: 165px;
+	padding-top: 60px;
+	float: left;
+}
+.why .left img{
+	margin-bottom: 20px;
+}
+.why .right{
+	width:450px;
+	float: left;
+	margin-left: 90px;
+}
+.why h5{
+	width:140px;
+	font-size: 16px;
+	line-height: 32px;
+	background: #ff7801;
+	color:#fff;
+	border-radius: 3px;
+	margin:30px 0 10px;
+}
+.why h5.last{
+	width:194px;
+}
+.why h6{
+	font-size: 16px;
+	line-height: 32px;
+	color:#323232;
+	font-weight: bold;
+	text-align: left;
+}
+.why p{
+	text-align: left;
+}
+
+.advan ul,.who ul{
+	margin:50px auto 0;
+	width: 750px;
+	height: 480px;
+}
+.advan li,.who li{
+	float: left;
+	width:150px;
+	margin:0 50px;
+}
+.advan h6,.who h6{
+	font-size: 20px;
+	font-weight: bold;
+	color:#323232;
+	margin:20px 0;
+}
+.advan .center p{
+	margin-top: 48px;
+}
+
+.city{
+	background: #ff7801;
+	padding-top: 15px;
+	overflow: hidden;
+	height: 640px;
+}
+.city .bail,.city .bair{
+	background: #ff7801;
+}
+.city h3{
+	color:#fff;
+}
+.city h4{
+	color:#fff;
+}
+.city img{
+	float: left;
+	margin:80px 0 0 115px;
+}
+.city p{
+	color:#fff;
+	width: 350px;
+	float: left;
+	margin-top: 180px;
+	margin-left: 80px;
+
+}
+
+.cars{
+	width: 926px;
+	margin:0 auto ;
+}
+.cars h3{
+	color:#ff7801;
+	margin-bottom: 25px;
+}
+.cars p{
+	line-height: 28px;
+	font-size: 16px;
+}
+.cars img{
+	margin-top: 25px;
+	margin-bottom: 50px;
+}

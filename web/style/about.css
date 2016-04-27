@@ -1,0 +1,62 @@
+
+
+.slider{
+	left:120px;
+}
+
+
+.app,.car,.stripe,.bmkp{
+	background: #fafafa;
+	text-align: center;
+	overflow: hidden;
+}
+h2{
+	font-size: 35px;
+	color: #323232;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+.app img,.car img,.stripe img{
+	display: block;
+	margin:30px auto 80px;
+}
+p{
+	color:#646464;
+	font-size: 16px;
+}
+p.last{
+	width: 400px;
+	margin:0 auto 45px;
+}
+.car,.bmkp{
+	background: #fff;
+}
+
+
+.bmkp .box{
+	width:1024px;
+	margin:0 auto 50px;
+	border:1px solid #ff7801;
+}
+.bmkp .box-in{
+	margin:10px;
+	overflow: hidden;
+	height: 320px;
+	position: relative;
+}
+.bmkp ul{
+	overflow: hidden;
+	width: 5000px;
+	position: absolute;
+	left:0;
+	top:0;
+}
+.bmkp li{
+	float: left;
+	margin: 0 5px;
+}
+.bmkp img{
+	width: 445px;
+	height: 318px;
+	border:1px #ff7801 solid;
+}

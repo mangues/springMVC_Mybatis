@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mangues.dao.interfacce.app.DeliveryOrderVOMapper" >
+  <resultMap id="BaseResultMap" type="com.mangues.model.app.DeliveryOrderVO" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="fromAddress" property="fromaddress" jdbcType="VARCHAR" />
+    <result column="toAddress" property="toaddress" jdbcType="VARCHAR" />
+    <result column="fromPeopleName" property="frompeoplename" jdbcType="VARCHAR" />
+    <result column="fromPeoplePhone" property="frompeoplephone" jdbcType="VARCHAR" />
+    <result column="isCarry" property="iscarry" jdbcType="BIT" />
+    <result column="isInvoice" property="isinvoice" jdbcType="BIT" />
+    <result column="DriverTimeType" property="drivertimetype" jdbcType="INTEGER" />
+    <result column="DeliveryType" property="deliverytype" jdbcType="INTEGER" />
+    <result column="createAt" property="createat" jdbcType="TIMESTAMP" />
+    <result column="updateAt" property="updateat" jdbcType="TIMESTAMP" />
+    <result column="orderStatus" property="orderstatus" jdbcType="INTEGER" />
+    <result column="orderMonery" property="ordermonery" jdbcType="INTEGER" />
+    <result column="fromuid" property="fromuid" jdbcType="INTEGER" />
+    <result column="touid" property="touid" jdbcType="INTEGER" />
+    <result column="getPeopleName" property="getpeoplename" jdbcType="VARCHAR" />
+    <result column="getPeoplePhone" property="getpeoplephone" jdbcType="VARCHAR" />
+    <result column="appointTime" property="appointtime" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mangues.model.app.DeliveryOrderVO" extends="BaseResultMap" >
+    <result column="remarks" property="remarks" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, fromAddress, toAddress, fromPeopleName, fromPeoplePhone, isCarry, isInvoice, 
+    DriverTimeType, DeliveryType, createAt, updateAt, orderStatus, orderMonery, fromuid, 
+    touid, getPeopleName, getPeoplePhone, appointTime
+  </sql>
+  <sql id="Blob_Column_List" >
+    remarks
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DeliveryOrder
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DeliveryOrder
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mangues.model.app.DeliveryOrderVO" >
+    insert into DeliveryOrder (id, fromAddress, toAddress, 
+      fromPeopleName, fromPeoplePhone, isCarry, 
+      isInvoice, DriverTimeType, DeliveryType, 
+      createAt, updateAt, orderStatus, 
+      orderMonery, fromuid, touid, 
+      getPeopleName, getPeoplePhone, appointTime, 
+      remarks)
+    values (#{id,jdbcType=VARCHAR}, #{fromaddress,jdbcType=VARCHAR}, #{toaddress,jdbcType=VARCHAR}, 
+      #{frompeoplename,jdbcType=VARCHAR}, #{frompeoplephone,jdbcType=VARCHAR}, #{iscarry,jdbcType=BIT}, 
+      #{isinvoice,jdbcType=BIT}, #{drivertimetype,jdbcType=INTEGER}, #{deliverytype,jdbcType=INTEGER}, 
+      #{createat,jdbcType=TIMESTAMP}, #{updateat,jdbcType=TIMESTAMP}, #{orderstatus,jdbcType=INTEGER}, 
+      #{ordermonery,jdbcType=INTEGER}, #{fromuid,jdbcType=INTEGER}, #{touid,jdbcType=INTEGER}, 
+      #{getpeoplename,jdbcType=VARCHAR}, #{getpeoplephone,jdbcType=VARCHAR}, #{appointtime,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mangues.model.app.DeliveryOrderVO" >
+    insert into DeliveryOrder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="fromaddress != null" >
+        fromAddress,
+      </if>
+      <if test="toaddress != null" >
+        toAddress,
+      </if>
+      <if test="frompeoplename != null" >
+        fromPeopleName,
+      </if>
+      <if test="frompeoplephone != null" >
+        fromPeoplePhone,
+      </if>
+      <if test="iscarry != null" >
+        isCarry,
+      </if>
+      <if test="isinvoice != null" >
+        isInvoice,
+      </if>
+      <if test="drivertimetype != null" >
+        DriverTimeType,
+      </if>
+      <if test="deliverytype != null" >
+        DeliveryType,
+      </if>
+      <if test="createat != null" >
+        createAt,
+      </if>
+      <if test="updateat != null" >
+        updateAt,
+      </if>
+      <if test="orderstatus != null" >
+        orderStatus,
+      </if>
+      <if test="ordermonery != null" >
+        orderMonery,
+      </if>
+      <if test="fromuid != null" >
+        fromuid,
+      </if>
+      <if test="touid != null" >
+        touid,
+      </if>
+      <if test="getpeoplename != null" >
+        getPeopleName,
+      </if>
+      <if test="getpeoplephone != null" >
+        getPeoplePhone,
+      </if>
+      <if test="appointtime != null" >
+        appointTime,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="fromaddress != null" >
+        #{fromaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="toaddress != null" >
+        #{toaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="frompeoplename != null" >
+        #{frompeoplename,jdbcType=VARCHAR},
+      </if>
+      <if test="frompeoplephone != null" >
+        #{frompeoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="iscarry != null" >
+        #{iscarry,jdbcType=BIT},
+      </if>
+      <if test="isinvoice != null" >
+        #{isinvoice,jdbcType=BIT},
+      </if>
+      <if test="drivertimetype != null" >
+        #{drivertimetype,jdbcType=INTEGER},
+      </if>
+      <if test="deliverytype != null" >
+        #{deliverytype,jdbcType=INTEGER},
+      </if>
+      <if test="createat != null" >
+        #{createat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateat != null" >
+        #{updateat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderstatus != null" >
+        #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="ordermonery != null" >
+        #{ordermonery,jdbcType=INTEGER},
+      </if>
+      <if test="fromuid != null" >
+        #{fromuid,jdbcType=INTEGER},
+      </if>
+      <if test="touid != null" >
+        #{touid,jdbcType=INTEGER},
+      </if>
+      <if test="getpeoplename != null" >
+        #{getpeoplename,jdbcType=VARCHAR},
+      </if>
+      <if test="getpeoplephone != null" >
+        #{getpeoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="appointtime != null" >
+        #{appointtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mangues.model.app.DeliveryOrderVO" >
+    update DeliveryOrder
+    <set >
+      <if test="fromaddress != null" >
+        fromAddress = #{fromaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="toaddress != null" >
+        toAddress = #{toaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="frompeoplename != null" >
+        fromPeopleName = #{frompeoplename,jdbcType=VARCHAR},
+      </if>
+      <if test="frompeoplephone != null" >
+        fromPeoplePhone = #{frompeoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="iscarry != null" >
+        isCarry = #{iscarry,jdbcType=BIT},
+      </if>
+      <if test="isinvoice != null" >
+        isInvoice = #{isinvoice,jdbcType=BIT},
+      </if>
+      <if test="drivertimetype != null" >
+        DriverTimeType = #{drivertimetype,jdbcType=INTEGER},
+      </if>
+      <if test="deliverytype != null" >
+        DeliveryType = #{deliverytype,jdbcType=INTEGER},
+      </if>
+      <if test="createat != null" >
+        createAt = #{createat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateat != null" >
+        updateAt = #{updateat,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderstatus != null" >
+        orderStatus = #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="ordermonery != null" >
+        orderMonery = #{ordermonery,jdbcType=INTEGER},
+      </if>
+      <if test="fromuid != null" >
+        fromuid = #{fromuid,jdbcType=INTEGER},
+      </if>
+      <if test="touid != null" >
+        touid = #{touid,jdbcType=INTEGER},
+      </if>
+      <if test="getpeoplename != null" >
+        getPeopleName = #{getpeoplename,jdbcType=VARCHAR},
+      </if>
+      <if test="getpeoplephone != null" >
+        getPeoplePhone = #{getpeoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="appointtime != null" >
+        appointTime = #{appointtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mangues.model.app.DeliveryOrderVO" >
+    update DeliveryOrder
+    set fromAddress = #{fromaddress,jdbcType=VARCHAR},
+      toAddress = #{toaddress,jdbcType=VARCHAR},
+      fromPeopleName = #{frompeoplename,jdbcType=VARCHAR},
+      fromPeoplePhone = #{frompeoplephone,jdbcType=VARCHAR},
+      isCarry = #{iscarry,jdbcType=BIT},
+      isInvoice = #{isinvoice,jdbcType=BIT},
+      DriverTimeType = #{drivertimetype,jdbcType=INTEGER},
+      DeliveryType = #{deliverytype,jdbcType=INTEGER},
+      createAt = #{createat,jdbcType=TIMESTAMP},
+      updateAt = #{updateat,jdbcType=TIMESTAMP},
+      orderStatus = #{orderstatus,jdbcType=INTEGER},
+      orderMonery = #{ordermonery,jdbcType=INTEGER},
+      fromuid = #{fromuid,jdbcType=INTEGER},
+      touid = #{touid,jdbcType=INTEGER},
+      getPeopleName = #{getpeoplename,jdbcType=VARCHAR},
+      getPeoplePhone = #{getpeoplephone,jdbcType=VARCHAR},
+      appointTime = #{appointtime,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mangues.model.app.DeliveryOrderVO" >
+    update DeliveryOrder
+    set fromAddress = #{fromaddress,jdbcType=VARCHAR},
+      toAddress = #{toaddress,jdbcType=VARCHAR},
+      fromPeopleName = #{frompeoplename,jdbcType=VARCHAR},
+      fromPeoplePhone = #{frompeoplephone,jdbcType=VARCHAR},
+      isCarry = #{iscarry,jdbcType=BIT},
+      isInvoice = #{isinvoice,jdbcType=BIT},
+      DriverTimeType = #{drivertimetype,jdbcType=INTEGER},
+      DeliveryType = #{deliverytype,jdbcType=INTEGER},
+      createAt = #{createat,jdbcType=TIMESTAMP},
+      updateAt = #{updateat,jdbcType=TIMESTAMP},
+      orderStatus = #{orderstatus,jdbcType=INTEGER},
+      orderMonery = #{ordermonery,jdbcType=INTEGER},
+      fromuid = #{fromuid,jdbcType=INTEGER},
+      touid = #{touid,jdbcType=INTEGER},
+      getPeopleName = #{getpeoplename,jdbcType=VARCHAR},
+      getPeoplePhone = #{getpeoplephone,jdbcType=VARCHAR},
+      appointTime = #{appointtime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
